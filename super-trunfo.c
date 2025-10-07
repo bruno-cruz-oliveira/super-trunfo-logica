@@ -88,9 +88,9 @@ int main()
   superPower2 = (float)(population2 + area2 + GDP2 + touristAttractions2 + GDPPerCapita2) - populationDensity2;
 
   /* Mostrar o menu interativo */
-  short int comparisonAttribute;
+  short int comparisonAttribute1, comparisonAttribute2;
 
-  printf("\nEscolha um atributo para à comparação:\n");
+  printf("\nEscolha o primeiro atributo para à comparação:\n");
   printf("1. Nome do país (exibir informações)\n");
   printf("2. População\n");
   printf("3. Área\n");
@@ -100,10 +100,40 @@ int main()
   printf("7. PIB per capita \n");
   printf("8. Super poder \n");
 
-  scanf(" %hd", &comparisonAttribute);
+  scanf(" %hd", &comparisonAttribute1);
+
+  printf("\nEscolha o segundo atributo para à comparação:\n");
+
+  if (comparisonAttribute1 != 1)
+    printf("1. Nome do país (exibir informações)\n");
+
+  if (comparisonAttribute1 != 2)
+    printf("2. População\n");
+
+  if (comparisonAttribute1 != 3)
+    printf("3. Área\n");
+
+  if (comparisonAttribute1 != 4)
+    printf("4. PIB\n");
+
+  if (comparisonAttribute1 != 5)
+    printf("5. Número de pontos turísticos\n");
+
+  if (comparisonAttribute1 != 6)
+    printf("6. Densidade demográfica \n");
+
+  if (comparisonAttribute1 != 7)
+    printf("7. PIB per capita \n");
+
+  if (comparisonAttribute1 != 8)
+    printf("8. Super poder \n");
+
+  scanf(" %hd", &comparisonAttribute2);
+
+  double attributesSum1, attributesSum2;
 
   /* Realizar a comparação a partir do atributo selecionado */
-  switch (comparisonAttribute)
+  switch (comparisonAttribute1)
   {
   case 1:
     /* Mostrar as informações na tela  */
@@ -136,10 +166,16 @@ int main()
 
   case 2:
   {
+    /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+    attributesSum1 = (double)population1;
+    attributesSum2 = (double)population2;
+
     /* Para a execução caso for empate  */
     if (population1 == population2)
     {
       printf("\nEmpate!\n");
+      printf("Carta 1 - %s (%s - %s): %lld\n", cityName1, state1, countryName1, population1);
+      printf("Carta 2 - %s (%s - %s): %lld\n", cityName2, state2, countryName2, population2);
       break;
     }
 
@@ -161,10 +197,16 @@ int main()
 
   case 3:
   {
+    /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+    attributesSum1 = (double)area1;
+    attributesSum2 = (double)area2;
+
     /* Para a execução caso for empate  */
     if (area1 == area2)
     {
       printf("\nEmpate!\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, area1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, area2);
       break;
     }
 
@@ -186,10 +228,16 @@ int main()
 
   case 4:
   {
+    /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+    attributesSum1 = (double)GDP1;
+    attributesSum2 = (double)GDP2;
+
     /* Para a execução caso for empate  */
     if (GDP1 == GDP2)
     {
       printf("\nEmpate!\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, GDP1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, GDP2);
       break;
     }
 
@@ -211,10 +259,16 @@ int main()
 
   case 5:
   {
+    /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+    attributesSum1 = (double)touristAttractions1;
+    attributesSum2 = (double)touristAttractions2;
+
     /* Para a execução caso for empate  */
     if (touristAttractions1 == touristAttractions2)
     {
       printf("\nEmpate!\n");
+      printf("Carta 1 - %s (%s - %s): %hu\n", cityName1, state1, countryName1, touristAttractions1);
+      printf("Carta 2 - %s (%s - %s): %hu\n", cityName2, state2, countryName2, touristAttractions2);
       break;
     }
 
@@ -236,10 +290,16 @@ int main()
 
   case 6:
   {
+    /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+    attributesSum1 -= (double)populationDensity1;
+    attributesSum2 -= (double)populationDensity2;
+
     /* Para a execução caso for empate  */
     if (populationDensity1 == populationDensity2)
     {
       printf("\nEmpate!\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, populationDensity1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, populationDensity2);
       break;
     }
 
@@ -253,18 +313,24 @@ int main()
 
     /* Mostrar o resultado na tela  */
     printf("\nDensidades demográficas das cartas:\n");
-    printf("Carta 1 - %s (%s - %s): %2f\n", cityName1, state1, countryName1, populationDensity1);
-    printf("Carta 2 - %s (%s - %s): %2f\n", cityName2, state2, countryName2, populationDensity2);
+    printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, populationDensity1);
+    printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, populationDensity2);
     printf("Resultado: Carta %hu venceu\n", resultPopulationDensity);
     break;
   }
 
   case 7:
   {
+    /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+    attributesSum1 = (double)GDPPerCapita1;
+    attributesSum2 = (double)GDPPerCapita2;
+
     /* Para a execução caso for empate  */
     if (GDPPerCapita1 == GDPPerCapita2)
     {
       printf("\nEmpate!\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, GDPPerCapita1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, GDPPerCapita2);
       break;
     }
 
@@ -278,18 +344,24 @@ int main()
 
     /* Mostrar o resultado na tela  */
     printf("\nPIB per capita das cartas:\n");
-    printf("Carta 1 - %s (%s - %s): %2f\n", cityName1, state1, countryName1, GDPPerCapita1);
-    printf("Carta 2 - %s (%s - %s): %2f\n", cityName2, state2, countryName2, GDPPerCapita2);
+    printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, GDPPerCapita1);
+    printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, GDPPerCapita2);
     printf("Resultado: Carta %hu venceu\n", resultGDPPerCapita);
     break;
   }
 
   case 8:
   {
+    /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+    attributesSum1 = (double)superPower1;
+    attributesSum2 = (double)superPower2;
+
     /* Para a execução caso for empate  */
     if (superPower1 == superPower2)
     {
       printf("\nEmpate!\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, superPower1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, superPower2);
       break;
     }
 
@@ -303,8 +375,8 @@ int main()
 
     /* Mostrar o resultado na tela  */
     printf("\nSuper poder das cartas:\n");
-    printf("Carta 1 - %s (%s - %s): %2f\n", cityName1, state1, countryName1, superPower1);
-    printf("Carta 2 - %s (%s - %s): %2f\n", cityName2, state2, countryName2, superPower2);
+    printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, superPower1);
+    printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, superPower2);
     printf("Resultado: Carta %hu venceu\n", resultSuperPower);
     break;
   }
@@ -312,6 +384,294 @@ int main()
   default:
     printf("\nAtributo invalido\n");
     break;
+  }
+
+  if (comparisonAttribute1 != comparisonAttribute2)
+  {
+    /* Realizar a comparação a partir do atributo selecionado */
+    switch (comparisonAttribute2)
+    {
+    case 1:
+      /* Mostrar as informações na tela  */
+      printf("\nInformações da Carta 1:\n");
+      printf("País: %s\n", countryName1);
+      printf("Estado: %2s\n", state1);
+      printf("Código: %4s\n", letterCode1);
+      printf("Nome da Cidade: %s\n", cityName1);
+      printf("População: %lld\n", population1);
+      printf("Área: %.2f\n", area1);
+      printf("PIB: %.2f\n", GDP1);
+      printf("PIB per Capita: %.2f\n", GDPPerCapita1);
+      printf("Densidade demográfica: %.2f\n", populationDensity1);
+      printf("Número de Pontos Turísticos: %hu\n", touristAttractions1);
+      printf("Super poder: %.2f\n\n", superPower1);
+
+      printf("Informações da Carta 2:\n");
+      printf("País: %s\n", countryName2);
+      printf("Estado: %2s\n", state2);
+      printf("Código: %4s\n", letterCode2);
+      printf("Nome da Cidade: %s\n", cityName2);
+      printf("População: %lld\n", population2);
+      printf("Área: %.2f\n", area2);
+      printf("PIB: %.2f\n", GDP2);
+      printf("PIB per Capita: %.2f\n", GDPPerCapita2);
+      printf("Densidade demográfica: %.2f\n", populationDensity2);
+      printf("Número de Pontos Turísticos: %hu\n", touristAttractions2);
+      printf("Super poder: %.2f", superPower2);
+      break;
+
+    case 2:
+    {
+      /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+      attributesSum1 += (double)population1;
+      attributesSum2 += (double)population2;
+
+      /* Para a execução caso for empate  */
+      if (population1 == population2)
+      {
+        printf("\nEmpate!\n");
+        printf("Carta 1 - %s (%s - %s): %lld\n", cityName1, state1, countryName1, population1);
+        printf("Carta 2 - %s (%s - %s): %lld\n", cityName2, state2, countryName2, population2);
+        break;
+      }
+
+      /* Realizar a comparação da população  */
+      unsigned short int resultPopulation;
+
+      if (population1 > population2)
+        resultPopulation = 1;
+      else
+        resultPopulation = 2;
+
+      /* Mostrar o resultado na tela  */
+      printf("\nPopulações das cartas:\n");
+      printf("Carta 1 - %s (%s - %s): %lld\n", cityName1, state1, countryName1, population1);
+      printf("Carta 2 - %s (%s - %s): %lld\n", cityName2, state2, countryName2, population2);
+      printf("Resultado: Carta %hu venceu\n", resultPopulation);
+      break;
+    }
+
+    case 3:
+    {
+      /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+      attributesSum1 += (double)area1;
+      attributesSum2 += (double)area2;
+
+      /* Para a execução caso for empate  */
+      if (area1 == area2)
+      {
+        printf("\nEmpate!\n");
+        printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, area1);
+        printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, area2);
+        break;
+      }
+
+      /* Realizar a comparação da área  */
+      unsigned short int resultArea;
+
+      if (area1 > area2)
+        resultArea = 1;
+      else
+        resultArea = 2;
+
+      /* Mostrar o resultado na tela  */
+      printf("\nÀreas das cartas:\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, area1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, area2);
+      printf("Resultado: Carta %hu venceu\n", resultArea);
+      break;
+    }
+
+    case 4:
+    {
+      /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+      attributesSum1 += (double)GDP1;
+      attributesSum2 += (double)GDP2;
+
+      /* Para a execução caso for empate  */
+      if (GDP1 == GDP2)
+      {
+        printf("\nEmpate!\n");
+        printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, GDP1);
+        printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, GDP2);
+        break;
+      }
+
+      /* Realizar a comparação do PIB  */
+      unsigned short int resultGDP;
+
+      if (GDP1 > GDP2)
+        resultGDP = 1;
+      else
+        resultGDP = 2;
+
+      /* Mostrar o resultado na tela  */
+      printf("\nPIB das cartas:\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, GDP1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, GDP2);
+      printf("Resultado: Carta %hu venceu\n", resultGDP);
+      break;
+    }
+
+    case 5:
+    {
+      /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+      attributesSum1 += (double)touristAttractions1;
+      attributesSum2 += (double)touristAttractions2;
+
+      /* Para a execução caso for empate  */
+      if (touristAttractions1 == touristAttractions2)
+      {
+        printf("\nEmpate!\n");
+        printf("Carta 1 - %s (%s - %s): %hu\n", cityName1, state1, countryName1, touristAttractions1);
+        printf("Carta 2 - %s (%s - %s): %hu\n", cityName2, state2, countryName2, touristAttractions2);
+        break;
+      }
+
+      /* Realizar a comparação dos pontos turísticos  */
+      unsigned short int resultTouristAttractions;
+
+      if (touristAttractions1 > touristAttractions2)
+        resultTouristAttractions = 1;
+      else
+        resultTouristAttractions = 2;
+
+      /* Mostrar o resultado na tela  */
+      printf("\nPontos turísticos das cartas:\n");
+      printf("Carta 1 - %s (%s - %s): %hu\n", cityName1, state1, countryName1, touristAttractions1);
+      printf("Carta 2 - %s (%s - %s): %hu\n", cityName2, state2, countryName2, touristAttractions2);
+      printf("Resultado: Carta %hu venceu\n", resultTouristAttractions);
+      break;
+    }
+
+    case 6:
+    {
+      /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+      attributesSum1 -= (double)populationDensity1;
+      attributesSum2 -= (double)populationDensity2;
+
+      /* Para a execução caso for empate  */
+      if (populationDensity1 == populationDensity2)
+      {
+        printf("\nEmpate!\n");
+        printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, populationDensity1);
+        printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, populationDensity2);
+        break;
+      }
+
+      /* Realizar a comparação da densidade demográfica  */
+      unsigned short int resultPopulationDensity;
+
+      if (populationDensity1 < populationDensity2)
+        resultPopulationDensity = 1;
+      else
+        resultPopulationDensity = 2;
+
+      /* Mostrar o resultado na tela  */
+      printf("\nDensidades demográficas das cartas:\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, populationDensity1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, populationDensity2);
+      printf("Resultado: Carta %hu venceu\n", resultPopulationDensity);
+      break;
+    }
+
+    case 7:
+    {
+      /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+      attributesSum1 += (double)GDPPerCapita1;
+      attributesSum2 += (double)GDPPerCapita2;
+
+      /* Para a execução caso for empate  */
+      if (GDPPerCapita1 == GDPPerCapita2)
+      {
+        printf("\nEmpate!\n");
+        printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, GDPPerCapita1);
+        printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, GDPPerCapita2);
+        break;
+      }
+
+      /* Realizar a comparação do PIB per capita  */
+      unsigned short int resultGDPPerCapita;
+
+      if (GDPPerCapita1 > GDPPerCapita2)
+        resultGDPPerCapita = 1;
+      else
+        resultGDPPerCapita = 2;
+
+      /* Mostrar o resultado na tela  */
+      printf("\nPIB per capita das cartas:\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, GDPPerCapita1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, GDPPerCapita2);
+      printf("Resultado: Carta %hu venceu\n", resultGDPPerCapita);
+      break;
+    }
+
+    case 8:
+    {
+      /* Adicionando o valor a variável que somara o primeiro e o segundo atributo */
+      attributesSum1 += (double)superPower1;
+      attributesSum2 += (double)superPower2;
+
+      /* Para a execução caso for empate  */
+      if (superPower1 == superPower2)
+      {
+        printf("\nEmpate!\n");
+        printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, superPower1);
+        printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, superPower2);
+        break;
+      }
+
+      /* Realizar a comparação do Super poder */
+      unsigned short int resultSuperPower;
+
+      if (superPower1 > superPower2)
+        resultSuperPower = 1;
+      else
+        resultSuperPower = 2;
+
+      /* Mostrar o resultado na tela  */
+      printf("\nSuper poder das cartas:\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, superPower1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, superPower2);
+      printf("Resultado: Carta %hu venceu\n", resultSuperPower);
+      break;
+    }
+
+    default:
+      printf("\nAtributo invalido\n");
+      break;
+    }
+  }
+  else
+  {
+    printf("\nAtributo invalido\n");
+  }
+
+  if (comparisonAttribute1 != 1 && comparisonAttribute2 != 1)
+  {
+    /* Verificar se a soma dos atributos é igual  */
+    if (attributesSum1 == attributesSum2)
+    {
+      printf("\nEmpate na soma dos atributos (%s - %s)!\n", cityName1, cityName1);
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, attributesSum1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, attributesSum2);
+    }
+    else
+    {
+      /* Comparando a soma dos atributos  */
+      unsigned short int resultAttributesSum;
+
+      if (attributesSum1 > attributesSum2)
+        resultAttributesSum = 1;
+      else
+        resultAttributesSum = 2;
+
+      /* Mostrar o resultado na tela  */
+      printf("\nSoma dos atributos:\n");
+      printf("Carta 1 - %s (%s - %s): %.2f\n", cityName1, state1, countryName1, attributesSum1);
+      printf("Carta 2 - %s (%s - %s): %.2f\n", cityName2, state2, countryName2, attributesSum2);
+      printf("Resultado: Carta %hu venceu\n", resultAttributesSum);
+    }
   }
 
   return 0;
